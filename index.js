@@ -24,7 +24,7 @@
       this.password = password || process.env.EMAILOCTOPUS_PASSWORD;
 
       this.cookieJar = {};
-      this.apiRoot = 'https://emailoctopus.com/api/1.1';
+      this.apiRoot = 'https://emailoctopus.com/api/1.4';
       this.websiteRoot = 'https://emailoctopus.com';
 
       this.campaigns = new Campaigns(this);
@@ -49,7 +49,7 @@
         uri: _this.apiRoot + path,
         method: method,
         json: true,
-        qs: method === 'GET' ? options : undefined,
+        qs: method === 'GET' || method === 'DELETE' ? options : undefined,
         formData: method !== 'GET' ? options : undefined
       });
     };
